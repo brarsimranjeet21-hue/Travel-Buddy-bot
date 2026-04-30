@@ -1,115 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
 
-<title>Watson Assistant Chatbot</title>
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Animated Gradient Background */
+    background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    overflow: hidden;
+}
 
-<style>
-    *{
-        margin:0;
-        padding:0;
-        box-sizing:border-box;
-        font-family: Arial, sans-serif;
-    }
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
 
-    body{
-        height:100vh;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        background: linear-gradient(135deg, #1e3c72, #2a5298);
-        overflow:hidden;
-    }
+.container {
+    width: 90%;
+    max-width: 600px;
+    /* Glassmorphism Effect */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    padding: 60px 40px;
+    text-align: center;
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1.2s ease-out;
+}
 
-    .container{
-        width:90%;
-        max-width:900px;
-        background:white;
-        border-radius:20px;
-        padding:40px;
-        text-align:center;
-        box-shadow:0 10px 25px rgba(0,0,0,0.3);
-    }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
-    h1{
-        color:#1e3c72;
-        margin-bottom:15px;
-        font-size:40px;
-    }
+h1 {
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
 
-    p{
-        color:#555;
-        font-size:18px;
-        line-height:1.6;
-        margin-bottom:20px;
-    }
+p {
+    color: #e0e0e0;
+    font-size: 19px;
+    line-height: 1.8;
+    margin-bottom: 35px;
+    font-weight: 300;
+}
 
-    .btn{
-        display:inline-block;
-        padding:12px 25px;
-        background:#1e3c72;
-        color:white;
-        text-decoration:none;
-        border-radius:30px;
-        transition:0.3s;
-        font-size:18px;
-    }
+.btn {
+    display: inline-block;
+    padding: 16px 40px;
+    background: #fff;
+    color: #1e3c72;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 18px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
 
-    .btn:hover{
-        background:#2a5298;
-        transform:scale(1.05);
-    }
+.btn:hover {
+    background: #1e3c72;
+    color: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
 
-    .chat-note{
-        margin-top:20px;
-        color:#777;
-        font-size:15px;
-    }
-</style>
-</head>
-
-<body>
-
-<div class="container">
-    <h1>AI Chat Assistant</h1>
-
-    <p>
-        Welcome to our smart chatbot assistant.  
-        Click the chat icon at the bottom-right corner to start chatting.
-    </p>
-
-    <a href="#" class="btn">Start Chatting</a>
-
-    <div class="chat-note">
-        Powered by IBM Watson Assistant
-    </div>
-</div>
-
-<!-- Watson Assistant Script -->
-<script>
-  window.watsonAssistantChatOptions = {
-    integrationID: "542b899e-458b-4b36-a238-1ffe699b0df1",
-    region: "eu-de",
-    serviceInstanceID: "cf514a12-8ff1-4170-a748-3eac73fb9c67",
-
-    onLoad: async (instance) => {
-      await instance.render();
-    }
-  };
-
-  setTimeout(function () {
-    const t = document.createElement('script');
-
-    t.src =
-      "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" +
-      (window.watsonAssistantChatOptions.clientVersion || 'latest') +
-      "/WatsonAssistantChatEntry.js";
-
-    document.head.appendChild(t);
-  });
-</script>
-
-</body>
-</html>
+.chat-note {
+    margin-top: 30px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
