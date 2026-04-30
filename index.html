@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assistant Support</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        /* Container Styling */
+        .container {
+            max-width: 600px;
+            padding: 40px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #0062ff; /* IBM Blue */
+            margin-bottom: 20px;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #e1f5fe;
+            color: #01579b;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* Decorative element */
+        .dot {
+            height: 10px;
+            width: 10px;
+            background-color: #4caf50;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Welcome to Support</h1>
+        <p>Our AI-powered assistant is ready to help you with your inquiries. Look for the chat icon in the bottom right corner of your screen to start a conversation.</p>
+        <div class="status-badge">
+            <span class="dot"></span> System Online
+        </div>
+    </div>
+
+    <!-- IBM Watson Assistant Integration Script -->
+    <script>
+      window.watsonAssistantChatOptions = {
+        integrationID: "542b899e-458b-4b36-a238-1ffe699b0df1", 
+        region: "eu-de", 
+        serviceInstanceID: "cf514a12-8ff1-4170-a748-3eac73fb9c67", 
+        onLoad: async (instance) => { await instance.render(); }
+      };
+      setTimeout(function(){
+        const t=document.createElement('script');
+        t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+        document.head.appendChild(t);
+      });
+    </script>
+
+</body>
+</html>
