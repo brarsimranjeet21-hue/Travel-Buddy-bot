@@ -3,78 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Assistant Support</title>
+    <title>Modern AI Concierge</title>
     <style>
-        /* General Reset */
+        /* Modern Reset & Typography */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
         body {
-            background-color: #f4f7f6;
-            color: #333;
+            /* Animated Gradient Background */
+            background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #0062ff);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            text-align: center;
+            color: white;
+            overflow: hidden;
         }
 
-        /* Container Styling */
-        .container {
-            max-width: 600px;
-            padding: 40px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Glassmorphism Card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 50px;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         h1 {
-            color: #0062ff; /* IBM Blue */
-            margin-bottom: 20px;
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #fff, #a5c7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         p {
+            font-size: 1.1rem;
             line-height: 1.6;
-            color: #666;
-            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 35px;
         }
 
-        .status-badge {
-            display: inline-block;
-            padding: 8px 16px;
-            background: #e1f5fe;
-            color: #01579b;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 0.9rem;
+        /* Pulse Animation for Status */
+        .status-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #4caf50;
         }
 
-        /* Decorative element */
-        .dot {
-            height: 10px;
-            width: 10px;
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
             background-color: #4caf50;
             border-radius: 50%;
-            display: inline-block;
-            margin-right: 5px;
+            box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+            animation: pulse 2s infinite;
         }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(76, 175, 80, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
+        }
+
+        /* Floating Shapes for Background Depth */
+        .shape {
+            position: absolute;
+            z-index: -1;
+            filter: blur(80px);
+            border-radius: 50%;
+            opacity: 0.4;
+        }
+
+        .shape-1 { width: 300px; height: 300px; background: #0062ff; top: 10%; left: 15%; }
+        .shape-2 { width: 400px; height: 400px; background: #7000ff; bottom: 10%; right: 10%; }
+
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Welcome to Support</h1>
-        <p>Our AI-powered assistant is ready to help you with your inquiries. Look for the chat icon in the bottom right corner of your screen to start a conversation.</p>
-        <div class="status-badge">
-            <span class="dot"></span> System Online
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+
+    <div class="glass-card">
+        <h1>Intelligent Support</h1>
+        <p>Experience the next generation of assistance. Our AI is online and ready to chat.</p>
+        
+        <div class="status-container">
+            <div class="pulse-dot"></div>
+            <span>System Active</span>
         </div>
     </div>
 
-    <!-- IBM Watson Assistant Integration Script -->
+    <!-- IBM Watson Assistant Script -->
     <script>
       window.watsonAssistantChatOptions = {
         integrationID: "542b899e-458b-4b36-a238-1ffe699b0df1", 
