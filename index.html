@@ -1,115 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watson AI Chatbot</title>
 
-<title>Watson Assistant Chatbot</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: Arial, sans-serif;
+        }
 
-<style>
-    *{
-        margin:0;
-        padding:0;
-        box-sizing:border-box;
-        font-family: Arial, sans-serif;
-    }
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background: linear-gradient(to right, #141e30, #243b55);
+            overflow:hidden;
+        }
 
-    body{
-        height:100vh;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        background: linear-gradient(135deg, #1e3c72, #2a5298);
-        overflow:hidden;
-    }
+        .main-container{
+            width:90%;
+            max-width:850px;
+            background:white;
+            border-radius:20px;
+            padding:50px;
+            text-align:center;
+            box-shadow:0 10px 30px rgba(0,0,0,0.3);
+        }
 
-    .container{
-        width:90%;
-        max-width:900px;
-        background:white;
-        border-radius:20px;
-        padding:40px;
-        text-align:center;
-        box-shadow:0 10px 25px rgba(0,0,0,0.3);
-    }
+        h1{
+            font-size:42px;
+            color:#243b55;
+            margin-bottom:20px;
+        }
 
-    h1{
-        color:#1e3c72;
-        margin-bottom:15px;
-        font-size:40px;
-    }
+        p{
+            font-size:18px;
+            color:#555;
+            line-height:1.7;
+            margin-bottom:30px;
+        }
 
-    p{
-        color:#555;
-        font-size:18px;
-        line-height:1.6;
-        margin-bottom:20px;
-    }
+        .chat-btn{
+            display:inline-block;
+            padding:14px 35px;
+            background:#243b55;
+            color:white;
+            text-decoration:none;
+            border-radius:40px;
+            font-size:18px;
+            transition:0.3s;
+        }
 
-    .btn{
-        display:inline-block;
-        padding:12px 25px;
-        background:#1e3c72;
-        color:white;
-        text-decoration:none;
-        border-radius:30px;
-        transition:0.3s;
-        font-size:18px;
-    }
+        .chat-btn:hover{
+            background:#141e30;
+            transform:scale(1.05);
+        }
 
-    .btn:hover{
-        background:#2a5298;
-        transform:scale(1.05);
-    }
+        .features{
+            margin-top:40px;
+            display:flex;
+            justify-content:space-around;
+            flex-wrap:wrap;
+            gap:20px;
+        }
 
-    .chat-note{
-        margin-top:20px;
-        color:#777;
-        font-size:15px;
-    }
-</style>
+        .feature-box{
+            width:220px;
+            background:#f4f4f4;
+            padding:20px;
+            border-radius:15px;
+            transition:0.3s;
+        }
+
+        .feature-box:hover{
+            transform:translateY(-5px);
+            box-shadow:0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .feature-box h3{
+            margin-bottom:10px;
+            color:#243b55;
+        }
+
+        .feature-box p{
+            font-size:15px;
+            margin-bottom:0;
+        }
+
+        footer{
+            margin-top:35px;
+            color:#777;
+            font-size:14px;
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="container">
-    <h1>AI Chat Assistant</h1>
+    <div class="main-container">
 
-    <p>
-        Welcome to our smart chatbot assistant.  
-        Click the chat icon at the bottom-right corner to start chatting.
-    </p>
+        <h1>IBM Watson Assistant</h1>
 
-    <a href="#" class="btn">Start Chatting</a>
+        <p>
+            Welcome to our AI-powered chatbot system.  
+            Get instant support, ask questions, and interact with our smart assistant anytime.
+        </p>
 
-    <div class="chat-note">
-        Powered by IBM Watson Assistant
+        <a href="#" class="chat-btn">Open Chat</a>
+
+        <div class="features">
+
+            <div class="feature-box">
+                <h3>24/7 Support</h3>
+                <p>Available anytime for quick assistance.</p>
+            </div>
+
+            <div class="feature-box">
+                <h3>Smart Replies</h3>
+                <p>AI-powered intelligent conversations.</p>
+            </div>
+
+            <div class="feature-box">
+                <h3>Easy to Use</h3>
+                <p>Simple and user-friendly chatbot interface.</p>
+            </div>
+
+        </div>
+
+        <footer>
+            Powered by IBM Watson Assistant
+        </footer>
+
     </div>
-</div>
 
-<!-- Watson Assistant Script -->
-<script>
-  window.watsonAssistantChatOptions = {
-    integrationID: "542b899e-458b-4b36-a238-1ffe699b0df1",
-    region: "eu-de",
-    serviceInstanceID: "cf514a12-8ff1-4170-a748-3eac73fb9c67",
+    <!-- Watson Assistant Chatbot Script -->
 
-    onLoad: async (instance) => {
-      await instance.render();
-    }
-  };
+    <script>
+      window.watsonAssistantChatOptions = {
+        integrationID: "542b899e-458b-4b36-a238-1ffe699b0df1",
 
-  setTimeout(function () {
-    const t = document.createElement('script');
+        region: "eu-de",
 
-    t.src =
-      "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" +
-      (window.watsonAssistantChatOptions.clientVersion || 'latest') +
-      "/WatsonAssistantChatEntry.js";
+        serviceInstanceID: "cf514a12-8ff1-4170-a748-3eac73fb9c67",
 
-    document.head.appendChild(t);
-  });
-</script>
+        onLoad: async (instance) => {
+          await instance.render();
+        }
+      };
+
+      setTimeout(function () {
+
+        const t = document.createElement('script');
+
+        t.src =
+          "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" +
+          (window.watsonAssistantChatOptions.clientVersion || 'latest') +
+          "/WatsonAssistantChatEntry.js";
+
+        document.head.appendChild(t);
+
+      });
+    </script>
 
 </body>
 </html>
